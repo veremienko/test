@@ -1,0 +1,338 @@
+/*------------- align -------------*/
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-wrap {
+  flex-wrap: wrap;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.align-center-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.align-end-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+}
+
+.align-start-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+}
+
+.align-center-start {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: center;
+}
+
+.align-space-between-start {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+
+.align-end-start {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-end;
+}
+
+.align-start-start {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.align-space-between-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.align-space-around-center {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.align-space-between-stretch {
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  justify-content: space-between;
+}
+
+.flex {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1 1 auto;
+}
+
+.layout-fill {
+  width: 100%;
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/*------------- elements -------------*/
+
+html, body {
+  font-family: Catamaran-Regular, sans-serif;
+  background-color: #edf1f4;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*------------- components -------------*/
+
+.loader {
+  line-height: 40px;
+  letter-spacing: 0.2em;
+  width: 80px;
+  margin: 40px auto 15px;
+  position: relative;
+  font-weight: bold;
+  color: #ed302c;
+  font-family: Catamaran-Regular, sans-serif;
+  text-align: center;
+  &::before, &::after {
+    content: "";
+    display: block;
+    background: #ed302c;
+    position: absolute;
+    animation: load .7s infinite alternate ease-in-out;
+    width: 20px;
+    height: 20px;
+  }
+
+  &::before {
+    top: 0;
+  }
+
+  &::after {
+    bottom: 0;
+  }
+  @keyframes load {
+    0% {
+      left: -30px;
+      height: 20px;
+      width: 20px;
+    }
+    50% {
+      height: 5px;
+      width: 40px;
+    }
+    100% {
+      left: 90px;
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+.form-style {
+  width: fit-content;
+  font-size: 16px;
+  background: #495C70;
+  padding: 30px 30px 15px 30px;
+  border: 5px solid #53687E;
+  margin: auto;
+  input {
+    &[type=submit], &[type=button], &[type=text], &[type=number], &[type=date] {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+  textarea {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: #fff;
+  }
+  label {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 16px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+    > span {
+      display: inline-block;
+      float: left;
+      width: 150px;
+    }
+  }
+  input {
+    &[type=text], &[type=number], &[type=date] {
+      background: transparent;
+      border: none;
+      border-bottom: 1px dashed #83A4C5;
+      width: 275px;
+      outline: none;
+      padding: 0px 0px 0px 0px;
+      font-style: italic;
+    }
+  }
+  textarea {
+    font-style: italic;
+    padding: 0px 0px 0px 0px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #83A4C5;
+    width: 275px;
+    height: 100px;
+    &:focus {
+      border-bottom: 1px dashed #D9FFA9;
+    }
+  }
+  input {
+    &[type=text]:focus {
+      border-bottom: 1px dashed #D9FFA9;
+    }
+    &[type=number] {
+      &:focus, :focus {
+        border-bottom: 1px dashed #D9FFA9;
+      }
+    }
+    &[type=date] {
+      &:focus, :focus {
+        border-bottom: 1px dashed #D9FFA9;
+      }
+    }
+    &[type=submit], &[type=button] {
+      background: #576E86;
+      border: none;
+      padding: 8px 10px 8px 10px;
+      border-radius: 5px;
+      color: #A8BACE;
+    }
+    &[type=submit]:hover, &[type=button]:hover {
+      background: #394D61;
+    }
+  }
+}
+
+table.table-style {
+  border: 4px solid #495C70;
+  background-color: #495C70;
+  text-align: center;
+  border-collapse: collapse;
+  margin: auto;
+  td, th {
+    border: 1px solid #495C70;
+    padding: 5px 10px;
+  }
+  tbody {
+    td {
+      font-size: 12px;
+      font-weight: bold;
+      color: #FFFFFF;
+
+    }
+    tr {
+      cursor: pointer;
+    }
+  }
+  td {
+    &:nth-child(even) {
+      background: #398AA4;
+    }
+    &.warn {
+      background: #ed302c;
+    }
+  }
+  thead {
+    background: #398AA4;
+    border-bottom: 10px solid #398AA4;
+    th {
+      font-size: 15px;
+      font-weight: bold;
+      color: #FFFFFF;
+      text-align: left;
+      border-left: 2px solid #398AA4;
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  li {
+    font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+    &:last-child {
+      border: none;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+      margin: 0;
+      cursor: pointer;
+      -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+      -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+      -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+      -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+      transition: font-size 0.3s ease, background-color 0.3s ease;
+      display: block;
+      &:hover {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.attributes {
+  width: fit-content;
+  font-size: 16px;
+  margin: auto;
+  color: #576E86;
+  &-item {
+    @extend .row;
+    border-bottom: 1px solid #cccccc;
+    padding: 5px;
+    &__label {
+      width: 200px;
+    }
+  }
+}

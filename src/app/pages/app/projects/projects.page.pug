@@ -1,0 +1,5 @@
+h2.text-center Projects
+
+ul.text-center
+  li(*ngFor="let item of projects", )
+    a((click)="goToProjectDetails(item)") {{item?.name}}

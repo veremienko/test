@@ -1,0 +1,15 @@
+h2.text-center Spent time
+
+form.form-style([formGroup]="form", (ngSubmit)="submitForm(form.valid, form.value)")
+  div(formGroupName="time_entry")
+    label(for='spent_on')
+      span Date
+      input#spent_on(required, formControlName="spent_on", type="date")
+    label(for='hours')
+      span Hours
+      input#hours(required, formControlName="hours", type="number", min='0')
+  label(for='comment')
+    span Comment
+    textarea#comment(formControlName="comment")
+  input(type='submit', [disabled]='isLoading', value="Create")
+p(*ngIf='errorMessage') {{errorMessage}}

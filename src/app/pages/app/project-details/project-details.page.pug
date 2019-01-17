@@ -1,0 +1,33 @@
+h2.text-center {{project?.name}}
+h3.text-center {{project?.description}}
+
+table.table-style
+  caption Issues
+  thead
+    tr
+      th
+        span #
+      th
+        span Tracker
+      th
+        span Status
+      th
+        span Priority
+      th
+        span Subject
+      th
+        span Author
+      th
+        span Assignee
+      th
+        span Updated
+  tbody
+    tr(*ngFor="let item of issues", (click)="goToIssueDetails(item)")
+      td {{item.id}}
+      td([class.warn]="item.tracker.id === 1") {{item?.tracker.name}}
+      td {{item?.status?.name}}
+      td {{item?.priority?.name}}
+      td {{item?.subject}}
+      td {{item?.author?.name}}
+      td {{item?.assigned_to?.name}}
+      td {{item?.updated_on | date:'MM/dd/yyyy  h:mma'}}

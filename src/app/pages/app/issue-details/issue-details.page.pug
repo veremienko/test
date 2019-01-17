@@ -1,0 +1,36 @@
+h2.text-center {{issue?.tracker.name}} {{'#'+issue?.id}}
+p.text-center(*ngIf="issue?.description") {{issue?.description}}
+.attributes
+  .attributes-item
+    .attributes-item__label Status:
+    .attributes-item__value {{issue?.status.name}}
+  .attributes-item
+    .attributes-item__label Priority:
+    .attributes-item__value {{issue?.priority.name}}
+  .attributes-item
+    .attributes-item__label Start date:
+    .attributes-item__value {{issue?.start_date}}
+  .attributes-item(*ngIf="issue?.due_date")
+    .attributes-item__label Due date:
+    .attributes-item__value {{issue?.due_date}}
+  .attributes-item
+    .attributes-item__label Done:
+    .attributes-item__value {{issue?.done_ratio}}%
+  .attributes-item
+    .attributes-item__label Estimated time:
+    .attributes-item__value {{issue?.estimated_hours || 0}} h
+  .attributes-item
+    .attributes-item__label Spent time:
+    .attributes-item__value {{issue?.total_spent_hours}} h
+
+button((click)="goToLogTime()") Log time
+
+h3.text-center Comments
+ul
+  li(*ngFor="let item of comments") {{item?.comment}}
+
+
+
+
+
+

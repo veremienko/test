@@ -1,0 +1,9 @@
+form([formGroup]="form", (ngSubmit)="submitForm(form.valid, form.value)")
+  label(for='name') Username
+    input#name(required, formControlName="login", type="text")
+  label(for='password') Password
+    input#password(required, formControlName="password", type="password", autocomplete)
+  button(type='submit', [disabled]='isLoading') Log in
+p(*ngIf='errorMessage') {{errorMessage}}
+
+
